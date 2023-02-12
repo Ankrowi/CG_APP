@@ -12,6 +12,7 @@ struct PS_IN
 
 PS_IN VSMain( VS_IN input )
 {
+
 	PS_IN output = (PS_IN)0;
 	
 	output.pos = input.pos;
