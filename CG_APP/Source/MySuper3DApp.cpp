@@ -1,8 +1,6 @@
 // MySuper3DApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include "../WindowHandler.h"
-
 #include <windows.h>
 #include <WinUser.h>
 #include <wrl.h>
@@ -14,18 +12,83 @@
 #include <chrono>
 
 
-
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "d3dcompiler.lib")
 #pragma comment(lib, "dxguid.lib")
+
+
+LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
+{
+	switch (umessage)
+	{
+	case WM_KEYDOWN:
+	{
+		// If a key is pressed send it to the input object so it can record that state.
+		std::cout << "Key: " << static_cast<unsigned int>(wparam) << std::endl;
+
+		if (static_cast<unsigned int>(wparam) == 27) PostQuitMessage(0);
+		return 0;
+	}
+	default:
+		{
+			return DefWindowProc(hwnd, umessage, wparam, lparam);
+		}
+	}
+}
+
 
 int main()
 {
 	LPCWSTR applicationName = L"My3DApp";
 	HINSTANCE hInstance = GetModuleHandle(nullptr);
 
-	WindowHandler win;
+#pragma region Window init
+    WNDCLASSEX wc;
+    
+	wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
+	wc.lpfnWndProc = WndProc;
+	wc.cbClsExtra = 0;
+	wc.cbWndExtra = 0;
+	wc.hInstance = hInstance;
+	wc.hIcon = LoadIcon(nullptr, IDI_WINLOGO);
+	wc.hIconSm = wc.hIcon;
+	wc.hCursor = LoadCursor(nullptr, IDC_ARROW);
+	wc.hbrBackground = static_cast<HBRUSH>(GetStockObject(BLACK_BRUSH));
+	wc.lpszMenuName = nullptr;
+	wc.lpszClassName = applicationName;
+	wc.cbSize = sizeof(WNDCLASSEX);
+
+	// Register the window class.
+	RegisterClassEx(&wc);
+
+
+	auto screenWidth = 800;
+	auto screenHeight = 800;
+
+	RECT windowRect = { 0, 0, static_cast<LONG>(screenWidth), static_cast<LONG>(screenHeight) };
+	AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, FALSE);
+
+	auto dwStyle = WS_SYSMENU | WS_CAPTION | WS_MINIMIZEBOX | WS_THICKFRAME;
+
+	auto posX = (GetSystemMetrics(SM_CXSCREEN) - screenWidth) / 2;
+	auto posY = (GetSystemMetrics(SM_CYSCREEN) - screenHeight) / 2;
+
+	HWND hWnd = CreateWindowEx(WS_EX_APPWINDOW, applicationName, applicationName,
+		dwStyle,
+		posX, posY,
+		windowRect.right - windowRect.left,
+		windowRect.bottom - windowRect.top,
+		nullptr, nullptr, hInstance, nullptr);
+
+	ShowWindow(hWnd, SW_SHOW);
+	SetForegroundWindow(hWnd);
+	SetFocus(hWnd);
+
+	ShowCursor(true);
+
+#pragma endregion Window init
+
 
 	D3D_FEATURE_LEVEL featureLevel[] = { D3D_FEATURE_LEVEL_11_1 };
 
@@ -276,7 +339,7 @@ int main()
 
 		context->OMSetRenderTargets(0, nullptr, nullptr);
 
-		swapChain->Present(0, /*DXGI_PRESENT_DO_NOT_WAIT*/ 0);
+		swapChain->Present(1, /*DXGI_PRESENT_DO_NOT_WAIT*/ 0);
 	}
 
     std::cout << "Hello World!\n";
