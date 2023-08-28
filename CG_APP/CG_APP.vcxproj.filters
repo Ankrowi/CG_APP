@@ -13,13 +13,158 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\Bindables">
+      <UniqueIdentifier>{178fd50e-3d6c-40a6-b850-d98a7fb838b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Bindables">
+      <UniqueIdentifier>{ce2deb7b-e5c4-4167-bcc6-0fd23d085ddd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Drawable">
+      <UniqueIdentifier>{eace9fa5-f9df-47e8-9210-e0b4374c4df0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Drawable">
+      <UniqueIdentifier>{9a6cecd8-8017-47fd-adbc-8534ee10fc11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Geometry">
+      <UniqueIdentifier>{2b01b81f-f414-43d1-a962-f23a02c83cc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Shaders">
+      <UniqueIdentifier>{1c072787-3c80-4567-8e59-bffa927628b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Trash Can">
+      <UniqueIdentifier>{04653be9-5baa-4cba-a343-5b66aec18681}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\MySuper3DApp.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Keyboard.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Window.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\App.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Bindable.cpp">
+      <Filter>Исходные файлы\Bindables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\IndexBuffer.cpp">
+      <Filter>Исходные файлы\Bindables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\InputLayout.cpp">
+      <Filter>Исходные файлы\Bindables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VertexShader.cpp">
+      <Filter>Исходные файлы\Bindables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PixelShader.cpp">
+      <Filter>Исходные файлы\Bindables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Topology.cpp">
+      <Filter>Исходные файлы\Bindables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VertexBuffer.cpp">
+      <Filter>Исходные файлы\Bindables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TransformCBuf.cpp">
+      <Filter>Исходные файлы\Bindables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Drawable.cpp">
+      <Filter>Исходные файлы\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DrawableBase.cpp">
+      <Filter>Исходные файлы\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Box.cpp">
+      <Filter>Исходные файлы\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="my_super_3d_add_trash.cpp">
+      <Filter>Исходные файлы\Trash Can</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Timer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Shaders\MyVeryFirstShader.hlsl" />
+    <ClInclude Include="Source\Keyboard.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Window.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\App.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Bindable.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ConstantBuffer.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\IndexBuffer.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\InputLayout.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PixelShader.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\VertexShader.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Topology.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\VertexBuffer.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TransformCBuf.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Drawable.h">
+      <Filter>Файлы заголовков\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DrawableBase.h">
+      <Filter>Файлы заголовков\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cube.h">
+      <Filter>Файлы заголовков\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Box.h">
+      <Filter>Файлы заголовков\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\IndexedTriangleList.h">
+      <Filter>Файлы заголовков\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BindableBase.h">
+      <Filter>Файлы заголовков\Bindables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Timer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WinDefs.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\MyVeryFirstShader.hlsl">
+      <Filter>Файлы ресурсов\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\ColorIndexPS.hlsl">
+      <Filter>Файлы ресурсов\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\ColorIndexVS.hlsl">
+      <Filter>Файлы ресурсов\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

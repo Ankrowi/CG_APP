@@ -24,7 +24,8 @@ float4 PSMain( PS_IN input ) : SV_Target
 {
 	float4 col = input.col;
 #ifdef TEST
-	if (input.pos.x > 400) col = TCOLOR;
+	//if (input.pos.x > 400) col = TCOLOR;
+	if (input.pos.y > 550 && input.pos.x > 550) col = TCOLOR;
 #endif
 	return col;
 }

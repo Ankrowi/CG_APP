@@ -19,10 +19,60 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="my_super_3d_add_trash.cpp" />
+    <ClCompile Include="Source\App.cpp" />
+    <ClCompile Include="Source\Bindable.cpp" />
+    <ClCompile Include="Source\Box.cpp" />
+    <ClCompile Include="Source\Drawable.cpp" />
+    <ClCompile Include="Source\DrawableBase.cpp" />
+    <ClCompile Include="Source\Graphics.cpp" />
+    <ClCompile Include="Source\IndexBuffer.cpp" />
+    <ClCompile Include="Source\InputLayout.cpp" />
+    <ClCompile Include="Source\Keyboard.cpp" />
     <ClCompile Include="Source\MySuper3DApp.cpp" />
+    <ClCompile Include="Source\PixelShader.cpp" />
+    <ClCompile Include="Source\Timer.cpp" />
+    <ClCompile Include="Source\Topology.cpp" />
+    <ClCompile Include="Source\TransformCBuf.cpp" />
+    <ClCompile Include="Source\VertexBuffer.cpp" />
+    <ClCompile Include="Source\VertexShader.cpp" />
+    <ClCompile Include="Source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="Shaders\ColorIndexPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\Shaders\%(Filename).cso</ObjectFileOutput>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shaders\ColorIndexVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\Shaders\%(Filename).cso</ObjectFileOutput>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4.0</ShaderModel>
+    </FxCompile>
     <FxCompile Include="Shaders\MyVeryFirstShader.hlsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\App.h" />
+    <ClInclude Include="Source\Bindable.h" />
+    <ClInclude Include="Source\BindableBase.h" />
+    <ClInclude Include="Source\Box.h" />
+    <ClInclude Include="Source\ConstantBuffer.h" />
+    <ClInclude Include="Source\Cube.h" />
+    <ClInclude Include="Source\Drawable.h" />
+    <ClInclude Include="Source\DrawableBase.h" />
+    <ClInclude Include="Source\Graphics.h" />
+    <ClInclude Include="Source\IndexBuffer.h" />
+    <ClInclude Include="Source\IndexedTriangleList.h" />
+    <ClInclude Include="Source\InputLayout.h" />
+    <ClInclude Include="Source\Keyboard.h" />
+    <ClInclude Include="Source\PixelShader.h" />
+    <ClInclude Include="Source\Timer.h" />
+    <ClInclude Include="Source\Topology.h" />
+    <ClInclude Include="Source\TransformCBuf.h" />
+    <ClInclude Include="Source\VertexBuffer.h" />
+    <ClInclude Include="Source\VertexShader.h" />
+    <ClInclude Include="Source\WinDefs.h" />
+    <ClInclude Include="Source\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -49,7 +99,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -108,16 +158,19 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions); IS_DEBUG=true</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>D:\code\CG_APP\CG_APP\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
     <FxCompile>
       <ShaderType>Effect</ShaderType>
-      <ShaderModel>5.0</ShaderModel>
+      <ShaderModel>4.0</ShaderModel>
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
