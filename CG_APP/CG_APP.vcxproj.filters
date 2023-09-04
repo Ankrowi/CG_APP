@@ -34,12 +34,15 @@
     <Filter Include="Исходные файлы\Trash Can">
       <UniqueIdentifier>{04653be9-5baa-4cba-a343-5b66aec18681}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Collisions">
+      <UniqueIdentifier>{1ce921ac-e426-412a-9d18-c8d277ec8ea7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Collisions">
+      <UniqueIdentifier>{40ca165c-d480-4df3-9e86-8cebf63e5c51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\MySuper3DApp.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Keyboard.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Source\Window.cpp">
@@ -81,20 +84,29 @@
     <ClCompile Include="Source\DrawableBase.cpp">
       <Filter>Исходные файлы\Drawable</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Box.cpp">
-      <Filter>Исходные файлы\Drawable</Filter>
-    </ClCompile>
     <ClCompile Include="my_super_3d_add_trash.cpp">
       <Filter>Исходные файлы\Trash Can</Filter>
     </ClCompile>
     <ClCompile Include="Source\Timer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Stick.cpp">
+      <Filter>Исходные файлы\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Keyboard.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Box.cpp">
+      <Filter>Исходные файлы\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Ball.cpp">
+      <Filter>Исходные файлы\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CollisionRectangle.cpp">
+      <Filter>Исходные файлы\Collisions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Keyboard.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Window.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -140,9 +152,6 @@
     <ClInclude Include="Source\Cube.h">
       <Filter>Файлы заголовков\Geometry</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Box.h">
-      <Filter>Файлы заголовков\Drawable</Filter>
-    </ClInclude>
     <ClInclude Include="Source\IndexedTriangleList.h">
       <Filter>Файлы заголовков\Geometry</Filter>
     </ClInclude>
@@ -155,6 +164,27 @@
     <ClInclude Include="Source\WinDefs.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Stick.h">
+      <Filter>Файлы заголовков\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Keyboard.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Box.h">
+      <Filter>Файлы заголовков\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rectangle.h">
+      <Filter>Файлы заголовков\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Circle.h">
+      <Filter>Файлы заголовков\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Ball.h">
+      <Filter>Файлы заголовков\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CollisionRectangle.h">
+      <Filter>Файлы заголовков\Collisions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\MyVeryFirstShader.hlsl">
@@ -166,5 +196,14 @@
     <FxCompile Include="Shaders\ColorIndexVS.hlsl">
       <Filter>Файлы ресурсов\Shaders</Filter>
     </FxCompile>
+    <FxCompile Include="PongPS.hlsl">
+      <Filter>Файлы ресурсов\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="PongVS.hlsl">
+      <Filter>Файлы ресурсов\Shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

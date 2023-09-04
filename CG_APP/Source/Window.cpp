@@ -123,8 +123,37 @@ LRESULT Window::handleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noe
 		// If a key is pressed send it to the input object so it can record that state.
 		std::cout << "Key: " << static_cast<unsigned int>(wParam) << std::endl;
 		if (static_cast<unsigned int>(wParam) == 27) PostQuitMessage(0);
+		if (static_cast<unsigned int>(wParam) == 87 ||
+			static_cast<unsigned int>(wParam) == 83 ||
+			static_cast<unsigned int>(wParam) == VK_UP ||
+			static_cast<unsigned int>(wParam) == VK_DOWN) 
+		{
+			kbd.onKeyPressed(wParam);
+		}
+		return 0;
+	}
+	case WM_KEYUP:
+	{
+		std::cout << "Key: " << static_cast<unsigned int>(wParam) << std::endl;
+		if (static_cast<unsigned int>(wParam) == 27) PostQuitMessage(0);
+		if (static_cast<unsigned int>(wParam) == 87 ||
+			static_cast<unsigned int>(wParam) == 83 ||
+			static_cast<unsigned int>(wParam) == VK_UP ||
+			static_cast<unsigned int>(wParam) == VK_DOWN)
+		{
+			kbd.onKeyReleased(wParam);
+		}
 		return 0;
 	}
 	}
 	return DefWindowProc(hWnd, msg, wParam, lParam);
+}
+
+
+float Window::getWinHeight() {
+	return height;
+}
+
+float Window::getWinWidth() {
+	return width;
 }

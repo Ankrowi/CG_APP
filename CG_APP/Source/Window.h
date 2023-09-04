@@ -29,6 +29,8 @@ public:
 	void setTitle(const std::string& title);
 	static std::optional<int> processMessages();
 	Graphics& Gfx();
+	float getWinHeight();
+	float getWinWidth();
 private:
 	static LRESULT CALLBACK handleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
 	static LRESULT CALLBACK handleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;

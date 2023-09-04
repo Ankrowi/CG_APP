@@ -3,24 +3,7 @@
 #include "Cube.h"
 
 
-Box::Box(Graphics& gfx,
-	std::mt19937& rng,
-	std::uniform_real_distribution<float>& adist,
-	std::uniform_real_distribution<float>& ddist,
-	std::uniform_real_distribution<float>& odist,
-	std::uniform_real_distribution<float>& rdist,
-	std::uniform_real_distribution<float>& bdist)
-	:
-	r(rdist(rng)),
-	droll(ddist(rng)),
-	dpitch(ddist(rng)),
-	dyaw(ddist(rng)),
-	dphi(odist(rng)),
-	dtheta(odist(rng)),
-	dchi(odist(rng)),
-	chi(adist(rng)),
-	theta(adist(rng)),
-	phi(adist(rng))
+Box::Box(Graphics& gfx)
 {
 	namespace dx = DirectX;
 
@@ -85,7 +68,7 @@ Box::Box(Graphics& gfx,
 	// model deformation transform (per instance, not stored as bind)
 	dx::XMStoreFloat3x3(
 		&mt,
-		dx::XMMatrixScaling(1.0f, 1.0f, bdist(rng))
+		dx::XMMatrixScaling(1.0f, 1.0f, 1.0f)
 	);
 }
 
