@@ -127,3 +127,13 @@ void Graphics::clearBuffer(float red, float green, float blue)
 	pContext->ClearRenderTargetView(pTarget.Get(), color);
 	//pContext->ClearDepthStencilView(pDSV.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0u);
 }
+
+void Graphics::setCamera(DirectX::FXMMATRIX cam)
+{
+	camera = cam;
+}
+
+DirectX::XMMATRIX Graphics::getCamera() const
+{
+	return camera;
+}

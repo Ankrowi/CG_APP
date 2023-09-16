@@ -123,7 +123,60 @@ LRESULT Window::handleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noe
 		// If a key is pressed send it to the input object so it can record that state.
 		std::cout << "Key: " << static_cast<unsigned int>(wParam) << std::endl;
 		if (static_cast<unsigned int>(wParam) == 27) PostQuitMessage(0);
+		if (static_cast<unsigned int>(wParam) == 87 ||
+			static_cast<unsigned int>(wParam) == 65 ||
+			static_cast<unsigned int>(wParam) == 68 ||
+			static_cast<unsigned int>(wParam) == 83 ||
+			static_cast<unsigned int>(wParam) == VK_UP ||
+			static_cast<unsigned int>(wParam) == VK_DOWN)
+		{
+			kbd.onKeyPressed(wParam);
+		}
 		return 0;
+	}
+	case WM_KEYUP:
+	{
+		std::cout << "Key: " << static_cast<unsigned int>(wParam) << std::endl;
+		if (static_cast<unsigned int>(wParam) == 27) PostQuitMessage(0);
+		if (static_cast<unsigned int>(wParam) == 87 ||
+			static_cast<unsigned int>(wParam) == 65 ||
+			static_cast<unsigned int>(wParam) == 68  ||
+			static_cast<unsigned int>(wParam) == 83 ||
+			static_cast<unsigned int>(wParam) == VK_UP ||
+			static_cast<unsigned int>(wParam) == VK_DOWN)
+		{
+			kbd.onKeyReleased(wParam);
+		}
+		return 0;
+	}
+	case WM_MOUSEMOVE:
+	{
+		const POINTS pt = MAKEPOINTS(lParam);
+		// in client region -> log move, and log enter + capture mouse (if not previously in window)
+		if (pt.x >= 0 && pt.x < width && pt.y >= 0 && pt.y < height)
+		{
+			mouse.OnMouseMove(pt.x, pt.y);
+			if (!mouse.IsInWindow())
+			{
+				SetCapture(hWnd);
+				mouse.OnMouseEnter();
+			}
+		}
+		// not in client -> log move / maintain capture if button down
+		else
+		{
+			if (wParam & (MK_LBUTTON | MK_RBUTTON))
+			{
+				mouse.OnMouseMove(pt.x, pt.y);
+			}
+			// button up -> release capture / log event for leaving
+			else
+			{
+				ReleaseCapture();
+				mouse.OnMouseLeave();
+			}
+		}
+		break;
 	}
 	}
 	return DefWindowProc(hWnd, msg, wParam, lParam);

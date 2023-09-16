@@ -5,6 +5,7 @@
 #include "Graphics.h"
 #include <memory>
 #include <optional>
+#include "Mouse.h"
 
 class Window
 {
@@ -39,5 +40,6 @@ private:
 	std::unique_ptr<Graphics> pGfx;
 public:
 	Keyboard kbd;
+	Mouse mouse;
 };
 

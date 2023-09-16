@@ -24,8 +24,11 @@ public:
 	void setProjection(DirectX::FXMMATRIX proj) noexcept;
 	DirectX::XMMATRIX getProjection();
 	void clearBuffer(float red, float green, float blue);
+	void setCamera(DirectX::FXMMATRIX cam);
+	DirectX::XMMATRIX getCamera() const;
 private:
 	DirectX::XMMATRIX projection;
+	DirectX::XMMATRIX camera;
 private:
 	Microsoft::WRL::ComPtr<ID3D11Device> pDevice;
 	Microsoft::WRL::ComPtr<IDXGISwapChain> pSwap;
